@@ -7,9 +7,16 @@ export class BeSpacelessController implements BeSpacelessActions{
     #targetObserver!: ResizeObserver;
     intro(proxy: Element & BeSpacelessVirtualProps, target: Element, beDecorProps: BeDecoratedProps): void{
         this.#target = target;
+        (target as HTMLElement).style.transformOrigin = 'top left';
         this.#targetObserver = new ResizeObserver(entries => {
-            for(const entry of entries){
-                console.log(entry);
+            for(const {contentRect, target} of entries){
+                const innerHeight = contentRect.height;
+                const innerWidth = contentRect.width;
+                const outerHeight = target.parentElement!.clientHeight;
+                const outerWidth = target.parentElement!.clientWidth;
+                console.log({innerHeight, innerWidth, outerHeight, outerWidth});
+                const zoom = Math.min(outerWidth / innerWidth, outerHeight / innerHeight);
+                (target as HTMLElement).style.transform = `scale(${zoom})`;
             }
         });
         this.#targetObserver.observe(this.#target);
