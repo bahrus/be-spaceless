@@ -18,6 +18,11 @@ export class BeSpacelessController implements BeSpacelessActions{
                 //console.log({innerHeight, innerWidth, outerHeight, outerWidth});
                 const zoom = Math.min(outerWidth / innerWidth, outerHeight / innerHeight);
                 (target as HTMLElement).style.transform = `scale(${zoom})`;
+                const leftOffset = (outerWidth - innerWidth * zoom) / 2;
+                const topOffset = (outerHeight - innerHeight * zoom) / 2;
+                console.log({zoom, innerWidth, outerWidth, innerHeight, outerHeight, leftOffset, topOffset});
+                (target as HTMLElement).style.left = `${leftOffset}px`;
+                (target as HTMLElement).style.top = `${topOffset}px`;
             }
         });
         this.#targetObserver.observe(this.#target);
