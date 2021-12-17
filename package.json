@@ -1,6 +1,6 @@
 {
   "name": "be-spaceless",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Sizes the inner content to fit into the outer container, preserving aspect ratio.",
   "main": "be-spaceless.js",
   "module": "be-spaceless.js",
