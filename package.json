@@ -1,8 +1,25 @@
 {
   "name": "be-spaceless",
   "version": "0.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Sizes the inner content to fit into the outer container, preserving aspect ratio.",
+  "main": "be-spaceless.js",
+  "module": "be-spaceless.js",
+  "keywords": [
+    "web-components",
+    "web-component",
+    "custom-element",
+    "custom-elements",
+    "zoom",
+    "resize"
+  ],
+  "exports":{
+    ".": "./be-spaceless.js",
+    "./be-spaceless.js": "./be-spaceless.js"
+  },
+  "files": [
+    "*.*"
+  ],
+  "types": "types.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "node node_modules/xtal-test/serve.js",

@@ -1,5 +1,7 @@
 # be-spaceless
 
+Sizes the inner content to fit into the outer container, preserving aspect ratio.
+
 be-spaceless might be unnecessary once container queries are a thing.
 
 For now:
@@ -10,4 +12,3 @@ For now:
 </div>
 ```
 
-Sizes the inner content to fit into the outer container, preserving aspect ratio.
