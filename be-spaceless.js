@@ -6,13 +6,14 @@ export class BeSpacelessController {
     intro(proxy, target, beDecorProps) {
         this.#target = target;
         target.style.transformOrigin = 'top left';
+        target.style.position = 'absolute';
         this.#targetObserver = new ResizeObserver(entries => {
             for (const { contentRect, target } of entries) {
                 const innerHeight = contentRect.height;
                 const innerWidth = contentRect.width;
                 const outerHeight = target.parentElement.clientHeight;
                 const outerWidth = target.parentElement.clientWidth;
-                console.log({ innerHeight, innerWidth, outerHeight, outerWidth });
+                //console.log({innerHeight, innerWidth, outerHeight, outerWidth});
                 const zoom = Math.min(outerWidth / innerWidth, outerHeight / innerHeight);
                 target.style.transform = `scale(${zoom})`;
             }
