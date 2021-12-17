@@ -12,6 +12,7 @@ export class BeSpacelessController implements BeSpacelessActions{
                 console.log(entry);
             }
         });
+        this.#targetObserver.observe(this.#target);
     }
 
     finale(proxy: Element & BeSpacelessVirtualProps, target: Element, beDecorProps: BeDecoratedProps): void{
@@ -38,6 +39,10 @@ define<BeSpacelessProps & BeDecoratedProps<BeSpacelessProps, BeSpacelessActions>
             intro: 'intro',
             finale: 'finale'
         },
-
+    },
+    complexPropDefaults:{
+        controller: BeSpacelessController
     }
 });
+
+register(ifWantsToBe, upgrade, tagName);
